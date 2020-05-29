@@ -109,6 +109,31 @@ export class SyncService {
                         sync.type = DeviceTypes.Lock;
                         sync.traits.push(Traits.LockUnlock);
                         break;
+                    case 'fan':
+                        sync.type = DeviceTypes.Fan;
+                        sync.traits.push(Traits.OnOff, Traits.FanSpeed);
+                        sync.attributes = {
+                            availableFanSpeeds: device.availableFanSpeeds,
+                            reversible: device.reversible,
+                            supportsFanSpeedPercent: false,
+                            commandOnlyFanSpeed: false,
+                        };
+                        break;
+                    case 'aircon':
+                        sync.type = DeviceTypes.Aircon;
+                        sync.traits.push(Traits.OnOff, Traits.FanSpeed, Traits.TemperatureSetting);
+                        sync.attributes = {
+                            availableFanSpeeds: device.availableFanSpeeds,
+                            reversible: device.reversible,
+                            supportsFanSpeedPercent: false,
+                            commandOnlyFanSpeed: false,
+                            
+                            availableThermostatModes: uniq(device.availableModes).join(','),
+                            thermostatTemperatureUnit: device.temperatureUnit,
+                            bufferRangeCelsius: device.bufferRangeCelsius,
+                            commandOnlyTemperatureSetting: device.commandOnlyTemperatureSetting,
+                            queryOnlyTemperatureSetting: device.queryOnlyTemperatureSetting,
+                        };
                 }
                 syncDevices.push(sync);
             }
