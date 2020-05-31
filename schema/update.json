@@ -6,16 +6,22 @@
                 "$ref": "#/definitions/Partial<State>"
             },
             {
-                "$ref": "#/definitions/Partial<OpenCloseState>"
+                "$ref": "#/definitions/Partial<OnOffState>"
             },
             {
-                "$ref": "#/definitions/Partial<OnOffState>"
+                "$ref": "#/definitions/Partial<Thermostat>"
+            },
+            {
+                "$ref": "#/definitions/Partial<OpenCloseState>"
             },
             {
                 "$ref": "#/definitions/Partial<LockUnlockState>"
             },
             {
-                "$ref": "#/definitions/Partial<Thermostat>"
+                "$ref": "#/definitions/Partial<OnOffState&FanState&Thermostat>"
+            },
+            {
+                "$ref": "#/definitions/Partial<FanState&OnOffState>"
             },
             {
                 "$ref": "#/definitions/Partial<BrightnessState&OnOffState>"
@@ -101,6 +107,21 @@
             },
             "type": "object"
         },
+        "Partial<FanState&OnOffState>": {
+            "additionalProperties": false,
+            "properties": {
+                "currentFanSpeedSetting": {
+                    "type": "number"
+                },
+                "on": {
+                    "type": "boolean"
+                },
+                "online": {
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
         "Partial<LockUnlockState>": {
             "additionalProperties": false,
             "properties": {
@@ -112,6 +133,53 @@
                 },
                 "online": {
                     "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "Partial<OnOffState&FanState&Thermostat>": {
+            "additionalProperties": false,
+            "properties": {
+                "currentFanSpeedSetting": {
+                    "type": "number"
+                },
+                "on": {
+                    "type": "boolean"
+                },
+                "online": {
+                    "type": "boolean"
+                },
+                "thermostatHumidityAmbient": {
+                    "maximum": 100,
+                    "minimum": 0,
+                    "type": "number"
+                },
+                "thermostatMode": {
+                    "enum": [
+                        "auto",
+                        "cool",
+                        "dry",
+                        "eco",
+                        "fan-only",
+                        "heat",
+                        "heatcool",
+                        "off",
+                        "on",
+                        "purifier"
+                    ],
+                    "type": "string"
+                },
+                "thermostatTemperatureAmbient": {
+                    "type": "number"
+                },
+                "thermostatTemperatureSetpoint": {
+                    "type": "number"
+                },
+                "thermostatTemperatureSetpointHigh": {
+                    "type": "number"
+                },
+                "thermostatTemperatureSetpointLow": {
+                    "type": "number"
                 }
             },
             "type": "object"

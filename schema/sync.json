@@ -5,6 +5,591 @@
             {
                 "additionalProperties": false,
                 "properties": {
+                    "availableFanSpeeds": {
+                        "additionalItems": {
+                            "anyOf": [
+                                {
+                                    "additionalItems": {
+                                        "anyOf": [
+                                            {
+                                                "enum": [
+                                                    "low"
+                                                ],
+                                                "type": "string"
+                                            }
+                                        ]
+                                    },
+                                    "items": [
+                                        {
+                                            "enum": [
+                                                "low"
+                                            ],
+                                            "type": "string"
+                                        }
+                                    ],
+                                    "minItems": 1,
+                                    "type": "array"
+                                }
+                            ]
+                        },
+                        "items": [
+                            {
+                                "additionalItems": {
+                                    "anyOf": [
+                                        {
+                                            "enum": [
+                                                "low"
+                                            ],
+                                            "type": "string"
+                                        }
+                                    ]
+                                },
+                                "items": [
+                                    {
+                                        "enum": [
+                                            "low"
+                                        ],
+                                        "type": "string"
+                                    }
+                                ],
+                                "minItems": 1,
+                                "type": "array"
+                            }
+                        ],
+                        "minItems": 1,
+                        "type": "array"
+                    },
+                    "availableModes": {
+                        "items": {
+                            "enum": [
+                                "auto",
+                                "cool",
+                                "dry",
+                                "eco",
+                                "fan-only",
+                                "heat",
+                                "heatcool",
+                                "off",
+                                "on",
+                                "purifier"
+                            ],
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "bufferRangeCelsius": {
+                        "type": "number"
+                    },
+                    "commandOnlyFanSpeed": {
+                        "enum": [
+                            false
+                        ],
+                        "type": "boolean"
+                    },
+                    "commandOnlyTemperatureSetting": {
+                        "enum": [
+                            false
+                        ],
+                        "type": "boolean"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "nicknames": {
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "queryOnlyTemperatureSetting": {
+                        "enum": [
+                            false
+                        ],
+                        "type": "boolean"
+                    },
+                    "reversible": {
+                        "enum": [
+                            false
+                        ],
+                        "type": "boolean"
+                    },
+                    "roomHint": {
+                        "type": "string"
+                    },
+                    "state": {
+                        "additionalProperties": false,
+                        "properties": {
+                            "currentFanSpeedSetting": {
+                                "type": "number"
+                            },
+                            "on": {
+                                "type": "boolean"
+                            },
+                            "online": {
+                                "type": "boolean"
+                            },
+                            "thermostatHumidityAmbient": {
+                                "maximum": 100,
+                                "minimum": 0,
+                                "type": "number"
+                            },
+                            "thermostatMode": {
+                                "$ref": "#/definitions/ThermostatMode"
+                            },
+                            "thermostatTemperatureAmbient": {
+                                "type": "number"
+                            },
+                            "thermostatTemperatureSetpoint": {
+                                "type": "number"
+                            },
+                            "thermostatTemperatureSetpointHigh": {
+                                "type": "number"
+                            },
+                            "thermostatTemperatureSetpointLow": {
+                                "type": "number"
+                            }
+                        },
+                        "required": [
+                            "currentFanSpeedSetting",
+                            "on",
+                            "online",
+                            "thermostatMode",
+                            "thermostatTemperatureAmbient"
+                        ],
+                        "type": "object"
+                    },
+                    "supportsFanSpeedPercent": {
+                        "enum": [
+                            false
+                        ],
+                        "type": "boolean"
+                    },
+                    "temperatureUnit": {
+                        "enum": [
+                            "C",
+                            "F"
+                        ],
+                        "type": "string"
+                    },
+                    "type": {
+                        "enum": [
+                            "aircon"
+                        ],
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "availableFanSpeeds",
+                    "availableModes",
+                    "commandOnlyFanSpeed",
+                    "name",
+                    "reversible",
+                    "state",
+                    "supportsFanSpeedPercent",
+                    "temperatureUnit",
+                    "type"
+                ],
+                "type": "object"
+            },
+            {
+                "additionalProperties": false,
+                "properties": {
+                    "availableFanSpeeds": {
+                        "additionalItems": {
+                            "anyOf": [
+                                {
+                                    "additionalItems": {
+                                        "anyOf": [
+                                            {
+                                                "enum": [
+                                                    "low"
+                                                ],
+                                                "type": "string"
+                                            }
+                                        ]
+                                    },
+                                    "items": [
+                                        {
+                                            "enum": [
+                                                "low"
+                                            ],
+                                            "type": "string"
+                                        }
+                                    ],
+                                    "minItems": 1,
+                                    "type": "array"
+                                }
+                            ]
+                        },
+                        "items": [
+                            {
+                                "additionalItems": {
+                                    "anyOf": [
+                                        {
+                                            "enum": [
+                                                "low"
+                                            ],
+                                            "type": "string"
+                                        }
+                                    ]
+                                },
+                                "items": [
+                                    {
+                                        "enum": [
+                                            "low"
+                                        ],
+                                        "type": "string"
+                                    }
+                                ],
+                                "minItems": 1,
+                                "type": "array"
+                            }
+                        ],
+                        "minItems": 1,
+                        "type": "array"
+                    },
+                    "availableModes": {
+                        "items": {
+                            "enum": [
+                                "auto",
+                                "cool",
+                                "dry",
+                                "eco",
+                                "fan-only",
+                                "heat",
+                                "heatcool",
+                                "off",
+                                "on",
+                                "purifier"
+                            ],
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "bufferRangeCelsius": {
+                        "type": "number"
+                    },
+                    "commandOnlyFanSpeed": {
+                        "enum": [
+                            false
+                        ],
+                        "type": "boolean"
+                    },
+                    "commandOnlyTemperatureSetting": {
+                        "enum": [
+                            false
+                        ],
+                        "type": "boolean"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "nicknames": {
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "queryOnlyTemperatureSetting": {
+                        "enum": [
+                            false
+                        ],
+                        "type": "boolean"
+                    },
+                    "reversible": {
+                        "enum": [
+                            false
+                        ],
+                        "type": "boolean"
+                    },
+                    "roomHint": {
+                        "type": "string"
+                    },
+                    "state": {
+                        "additionalProperties": false,
+                        "properties": {
+                            "currentFanSpeedSetting": {
+                                "type": "number"
+                            },
+                            "on": {
+                                "type": "boolean"
+                            },
+                            "online": {
+                                "type": "boolean"
+                            },
+                            "thermostatHumidityAmbient": {
+                                "maximum": 100,
+                                "minimum": 0,
+                                "type": "number"
+                            },
+                            "thermostatMode": {
+                                "$ref": "#/definitions/ThermostatMode"
+                            },
+                            "thermostatTemperatureAmbient": {
+                                "type": "number"
+                            },
+                            "thermostatTemperatureSetpoint": {
+                                "type": "number"
+                            },
+                            "thermostatTemperatureSetpointHigh": {
+                                "type": "number"
+                            },
+                            "thermostatTemperatureSetpointLow": {
+                                "type": "number"
+                            }
+                        },
+                        "required": [
+                            "currentFanSpeedSetting",
+                            "on",
+                            "online",
+                            "thermostatMode",
+                            "thermostatTemperatureAmbient"
+                        ],
+                        "type": "object"
+                    },
+                    "supportsFanSpeedPercent": {
+                        "enum": [
+                            false
+                        ],
+                        "type": "boolean"
+                    },
+                    "temperatureUnit": {
+                        "enum": [
+                            "C",
+                            "F"
+                        ],
+                        "type": "string"
+                    },
+                    "twoFactor": {
+                        "enum": [
+                            "ack"
+                        ],
+                        "type": "string"
+                    },
+                    "type": {
+                        "enum": [
+                            "aircon"
+                        ],
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "availableFanSpeeds",
+                    "availableModes",
+                    "commandOnlyFanSpeed",
+                    "name",
+                    "reversible",
+                    "state",
+                    "supportsFanSpeedPercent",
+                    "temperatureUnit",
+                    "twoFactor",
+                    "type"
+                ],
+                "type": "object"
+            },
+            {
+                "additionalProperties": false,
+                "properties": {
+                    "availableFanSpeeds": {
+                        "additionalItems": {
+                            "anyOf": [
+                                {
+                                    "additionalItems": {
+                                        "anyOf": [
+                                            {
+                                                "enum": [
+                                                    "low"
+                                                ],
+                                                "type": "string"
+                                            }
+                                        ]
+                                    },
+                                    "items": [
+                                        {
+                                            "enum": [
+                                                "low"
+                                            ],
+                                            "type": "string"
+                                        }
+                                    ],
+                                    "minItems": 1,
+                                    "type": "array"
+                                }
+                            ]
+                        },
+                        "items": [
+                            {
+                                "additionalItems": {
+                                    "anyOf": [
+                                        {
+                                            "enum": [
+                                                "low"
+                                            ],
+                                            "type": "string"
+                                        }
+                                    ]
+                                },
+                                "items": [
+                                    {
+                                        "enum": [
+                                            "low"
+                                        ],
+                                        "type": "string"
+                                    }
+                                ],
+                                "minItems": 1,
+                                "type": "array"
+                            }
+                        ],
+                        "minItems": 1,
+                        "type": "array"
+                    },
+                    "availableModes": {
+                        "items": {
+                            "enum": [
+                                "auto",
+                                "cool",
+                                "dry",
+                                "eco",
+                                "fan-only",
+                                "heat",
+                                "heatcool",
+                                "off",
+                                "on",
+                                "purifier"
+                            ],
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "bufferRangeCelsius": {
+                        "type": "number"
+                    },
+                    "commandOnlyFanSpeed": {
+                        "enum": [
+                            false
+                        ],
+                        "type": "boolean"
+                    },
+                    "commandOnlyTemperatureSetting": {
+                        "enum": [
+                            false
+                        ],
+                        "type": "boolean"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "nicknames": {
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "pin": {
+                        "type": "string"
+                    },
+                    "queryOnlyTemperatureSetting": {
+                        "enum": [
+                            false
+                        ],
+                        "type": "boolean"
+                    },
+                    "reversible": {
+                        "enum": [
+                            false
+                        ],
+                        "type": "boolean"
+                    },
+                    "roomHint": {
+                        "type": "string"
+                    },
+                    "state": {
+                        "additionalProperties": false,
+                        "properties": {
+                            "currentFanSpeedSetting": {
+                                "type": "number"
+                            },
+                            "on": {
+                                "type": "boolean"
+                            },
+                            "online": {
+                                "type": "boolean"
+                            },
+                            "thermostatHumidityAmbient": {
+                                "maximum": 100,
+                                "minimum": 0,
+                                "type": "number"
+                            },
+                            "thermostatMode": {
+                                "$ref": "#/definitions/ThermostatMode"
+                            },
+                            "thermostatTemperatureAmbient": {
+                                "type": "number"
+                            },
+                            "thermostatTemperatureSetpoint": {
+                                "type": "number"
+                            },
+                            "thermostatTemperatureSetpointHigh": {
+                                "type": "number"
+                            },
+                            "thermostatTemperatureSetpointLow": {
+                                "type": "number"
+                            }
+                        },
+                        "required": [
+                            "currentFanSpeedSetting",
+                            "on",
+                            "online",
+                            "thermostatMode",
+                            "thermostatTemperatureAmbient"
+                        ],
+                        "type": "object"
+                    },
+                    "supportsFanSpeedPercent": {
+                        "enum": [
+                            false
+                        ],
+                        "type": "boolean"
+                    },
+                    "temperatureUnit": {
+                        "enum": [
+                            "C",
+                            "F"
+                        ],
+                        "type": "string"
+                    },
+                    "twoFactor": {
+                        "enum": [
+                            "pin"
+                        ],
+                        "type": "string"
+                    },
+                    "type": {
+                        "enum": [
+                            "aircon"
+                        ],
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "availableFanSpeeds",
+                    "availableModes",
+                    "commandOnlyFanSpeed",
+                    "name",
+                    "pin",
+                    "reversible",
+                    "state",
+                    "supportsFanSpeedPercent",
+                    "temperatureUnit",
+                    "twoFactor",
+                    "type"
+                ],
+                "type": "object"
+            },
+            {
+                "additionalProperties": false,
+                "properties": {
                     "name": {
                         "type": "string"
                     },
@@ -111,6 +696,399 @@
                     "name",
                     "pin",
                     "state",
+                    "twoFactor",
+                    "type"
+                ],
+                "type": "object"
+            },
+            {
+                "additionalProperties": false,
+                "properties": {
+                    "availableFanSpeeds": {
+                        "additionalItems": {
+                            "anyOf": [
+                                {
+                                    "additionalItems": {
+                                        "anyOf": [
+                                            {
+                                                "enum": [
+                                                    "low"
+                                                ],
+                                                "type": "string"
+                                            }
+                                        ]
+                                    },
+                                    "items": [
+                                        {
+                                            "enum": [
+                                                "low"
+                                            ],
+                                            "type": "string"
+                                        }
+                                    ],
+                                    "minItems": 1,
+                                    "type": "array"
+                                }
+                            ]
+                        },
+                        "items": [
+                            {
+                                "additionalItems": {
+                                    "anyOf": [
+                                        {
+                                            "enum": [
+                                                "low"
+                                            ],
+                                            "type": "string"
+                                        }
+                                    ]
+                                },
+                                "items": [
+                                    {
+                                        "enum": [
+                                            "low"
+                                        ],
+                                        "type": "string"
+                                    }
+                                ],
+                                "minItems": 1,
+                                "type": "array"
+                            }
+                        ],
+                        "minItems": 1,
+                        "type": "array"
+                    },
+                    "commandOnlyFanSpeed": {
+                        "enum": [
+                            false
+                        ],
+                        "type": "boolean"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "nicknames": {
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "reversible": {
+                        "enum": [
+                            false
+                        ],
+                        "type": "boolean"
+                    },
+                    "roomHint": {
+                        "type": "string"
+                    },
+                    "state": {
+                        "additionalProperties": false,
+                        "properties": {
+                            "currentFanSpeedSetting": {
+                                "type": "number"
+                            },
+                            "on": {
+                                "type": "boolean"
+                            },
+                            "online": {
+                                "type": "boolean"
+                            }
+                        },
+                        "required": [
+                            "currentFanSpeedSetting",
+                            "on",
+                            "online"
+                        ],
+                        "type": "object"
+                    },
+                    "supportsFanSpeedPercent": {
+                        "enum": [
+                            false
+                        ],
+                        "type": "boolean"
+                    },
+                    "type": {
+                        "enum": [
+                            "fan"
+                        ],
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "availableFanSpeeds",
+                    "commandOnlyFanSpeed",
+                    "name",
+                    "reversible",
+                    "state",
+                    "supportsFanSpeedPercent",
+                    "type"
+                ],
+                "type": "object"
+            },
+            {
+                "additionalProperties": false,
+                "properties": {
+                    "availableFanSpeeds": {
+                        "additionalItems": {
+                            "anyOf": [
+                                {
+                                    "additionalItems": {
+                                        "anyOf": [
+                                            {
+                                                "enum": [
+                                                    "low"
+                                                ],
+                                                "type": "string"
+                                            }
+                                        ]
+                                    },
+                                    "items": [
+                                        {
+                                            "enum": [
+                                                "low"
+                                            ],
+                                            "type": "string"
+                                        }
+                                    ],
+                                    "minItems": 1,
+                                    "type": "array"
+                                }
+                            ]
+                        },
+                        "items": [
+                            {
+                                "additionalItems": {
+                                    "anyOf": [
+                                        {
+                                            "enum": [
+                                                "low"
+                                            ],
+                                            "type": "string"
+                                        }
+                                    ]
+                                },
+                                "items": [
+                                    {
+                                        "enum": [
+                                            "low"
+                                        ],
+                                        "type": "string"
+                                    }
+                                ],
+                                "minItems": 1,
+                                "type": "array"
+                            }
+                        ],
+                        "minItems": 1,
+                        "type": "array"
+                    },
+                    "commandOnlyFanSpeed": {
+                        "enum": [
+                            false
+                        ],
+                        "type": "boolean"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "nicknames": {
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "reversible": {
+                        "enum": [
+                            false
+                        ],
+                        "type": "boolean"
+                    },
+                    "roomHint": {
+                        "type": "string"
+                    },
+                    "state": {
+                        "additionalProperties": false,
+                        "properties": {
+                            "currentFanSpeedSetting": {
+                                "type": "number"
+                            },
+                            "on": {
+                                "type": "boolean"
+                            },
+                            "online": {
+                                "type": "boolean"
+                            }
+                        },
+                        "required": [
+                            "currentFanSpeedSetting",
+                            "on",
+                            "online"
+                        ],
+                        "type": "object"
+                    },
+                    "supportsFanSpeedPercent": {
+                        "enum": [
+                            false
+                        ],
+                        "type": "boolean"
+                    },
+                    "twoFactor": {
+                        "enum": [
+                            "ack"
+                        ],
+                        "type": "string"
+                    },
+                    "type": {
+                        "enum": [
+                            "fan"
+                        ],
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "availableFanSpeeds",
+                    "commandOnlyFanSpeed",
+                    "name",
+                    "reversible",
+                    "state",
+                    "supportsFanSpeedPercent",
+                    "twoFactor",
+                    "type"
+                ],
+                "type": "object"
+            },
+            {
+                "additionalProperties": false,
+                "properties": {
+                    "availableFanSpeeds": {
+                        "additionalItems": {
+                            "anyOf": [
+                                {
+                                    "additionalItems": {
+                                        "anyOf": [
+                                            {
+                                                "enum": [
+                                                    "low"
+                                                ],
+                                                "type": "string"
+                                            }
+                                        ]
+                                    },
+                                    "items": [
+                                        {
+                                            "enum": [
+                                                "low"
+                                            ],
+                                            "type": "string"
+                                        }
+                                    ],
+                                    "minItems": 1,
+                                    "type": "array"
+                                }
+                            ]
+                        },
+                        "items": [
+                            {
+                                "additionalItems": {
+                                    "anyOf": [
+                                        {
+                                            "enum": [
+                                                "low"
+                                            ],
+                                            "type": "string"
+                                        }
+                                    ]
+                                },
+                                "items": [
+                                    {
+                                        "enum": [
+                                            "low"
+                                        ],
+                                        "type": "string"
+                                    }
+                                ],
+                                "minItems": 1,
+                                "type": "array"
+                            }
+                        ],
+                        "minItems": 1,
+                        "type": "array"
+                    },
+                    "commandOnlyFanSpeed": {
+                        "enum": [
+                            false
+                        ],
+                        "type": "boolean"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "nicknames": {
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "pin": {
+                        "type": "string"
+                    },
+                    "reversible": {
+                        "enum": [
+                            false
+                        ],
+                        "type": "boolean"
+                    },
+                    "roomHint": {
+                        "type": "string"
+                    },
+                    "state": {
+                        "additionalProperties": false,
+                        "properties": {
+                            "currentFanSpeedSetting": {
+                                "type": "number"
+                            },
+                            "on": {
+                                "type": "boolean"
+                            },
+                            "online": {
+                                "type": "boolean"
+                            }
+                        },
+                        "required": [
+                            "currentFanSpeedSetting",
+                            "on",
+                            "online"
+                        ],
+                        "type": "object"
+                    },
+                    "supportsFanSpeedPercent": {
+                        "enum": [
+                            false
+                        ],
+                        "type": "boolean"
+                    },
+                    "twoFactor": {
+                        "enum": [
+                            "pin"
+                        ],
+                        "type": "string"
+                    },
+                    "type": {
+                        "enum": [
+                            "fan"
+                        ],
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "availableFanSpeeds",
+                    "commandOnlyFanSpeed",
+                    "name",
+                    "pin",
+                    "reversible",
+                    "state",
+                    "supportsFanSpeedPercent",
                     "twoFactor",
                     "type"
                 ],
@@ -432,6 +1410,9 @@
                         ],
                         "type": "object"
                     },
+                    "turnOnWhenBrightnessChanges": {
+                        "type": "boolean"
+                    },
                     "type": {
                         "enum": [
                             "light"
@@ -495,6 +1476,9 @@
                             "online"
                         ],
                         "type": "object"
+                    },
+                    "turnOnWhenBrightnessChanges": {
+                        "type": "boolean"
                     },
                     "twoFactor": {
                         "enum": [
@@ -569,6 +1553,9 @@
                             "online"
                         ],
                         "type": "object"
+                    },
+                    "turnOnWhenBrightnessChanges": {
+                        "type": "boolean"
                     },
                     "twoFactor": {
                         "enum": [
@@ -677,6 +1664,9 @@
                             "online"
                         ],
                         "type": "object"
+                    },
+                    "turnOnWhenBrightnessChanges": {
+                        "type": "boolean"
                     },
                     "type": {
                         "enum": [
@@ -779,6 +1769,9 @@
                         ],
                         "type": "object"
                     },
+                    "turnOnWhenBrightnessChanges": {
+                        "type": "boolean"
+                    },
                     "twoFactor": {
                         "enum": [
                             "ack"
@@ -889,6 +1882,9 @@
                             "online"
                         ],
                         "type": "object"
+                    },
+                    "turnOnWhenBrightnessChanges": {
+                        "type": "boolean"
                     },
                     "twoFactor": {
                         "enum": [
