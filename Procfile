@@ -1,0 +1,1 @@
+web: node --inspect ./build/index.js
