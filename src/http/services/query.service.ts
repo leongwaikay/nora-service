@@ -71,6 +71,8 @@ export class QueryService {
                 state.isLocked = device.state.isLocked;
                 state.isJammed = device.state.isJammed;
                 break;
+            default:
+                state = {...device.state};
         }
     }
 }

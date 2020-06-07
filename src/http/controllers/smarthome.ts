@@ -53,6 +53,7 @@ export class SmartHomeController extends Controller {
             payload,
         };
 
+        console.log(response);
         return response;
     }
 }
