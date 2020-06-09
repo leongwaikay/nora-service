@@ -51,6 +51,7 @@ export class UserRepository {
 }
 
 (async function () {
+    console.log('creating db');
     const service = new PostgressService();
     await service.query(`
         CREATE TABLE IF NOT EXISTS appuser (
